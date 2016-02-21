@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Communications Platform" />
+
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body ng-app="digital-banking-app" ng-cloak>
+
+    <md-toolbar layout="row">
+        <div class="md-toolbar-tools container">
+            <md-button class="md-icon-button" aria-label="Settings">
+                <md-icon aria-label="menu" class="material-icons step md-24">menu</md-icon>
+            </md-button>
+            <h1 layout-align-gt-sm="left">Digital Banking App</h1>
+            <span flex></span>
+            <md-button class="md-icon-button" aria-label="Find Branch">
+                <md-icon aria-label="help" class="material-icons step md-24">help</md-icon>
+            </md-button>
+            <md-button class="md-icon-button mdl-badge mdl-badge--overlap" aria-label="Email" data-badge="12">
+                <md-icon aria-label="email" class="material-icons step md-24 ">email</md-icon>
+            </md-button>
+            <md-button class="md-accent md-raised btn-logout">
+                <md-icon aria-label="lock_outline" class="material-icons step md-24">lock_outline</md-icon>
+                Log out
+            </md-button>
+        </div>
+    </md-toolbar>
+    <div class="md-tabs-wrapper">
+        <md-tabs md-dynamic-height md-border-bottom class="md-tabs">
+            <md-tab>
+                <md-icon aria-label="home" class="material-icons step md-24">home</md-icon>
+            </md-tab>
+            <md-tab label="Payments"></md-tab>
+            <md-tab label="Profile"></md-tab>
+            <md-tab label="Products"></md-tab>
+        </md-tabs>
+        <md-button class="md-primary ">
+            <md-icon aria-label="account_circle" class="material-icons step md-24">account_circle</md-icon>
+            Luis Cameroon
+        </md-button>
+    </div>
+
+    <div class="login-form-wrapper container" layout="row" layout-align="space-around center">
+        <md-card class="md-padding login-form" >
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Log on to Digital Banking App</span>
+                </md-card-title-text>
+            </md-card-title>
+            <form name="loginForm">
+                <md-input-container class="md-icon-float md-block">
+                    <label>Client number</label>
+                    <md-icon aria-label="person" class="material-icons step md-24">person</md-icon>
+                    <input required name="clientNumber" type="number"
+                        ng-pattern="/^[0-9]{8}$/"
+                        ng-model="login.clientNumber">
+                    <div class="hint">The client number is: 12345678</div>
+                    <!-- <div ng-messages="loginForm.clientNumber.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div> -->
+                </md-input-container>
+                <md-input-container class="md-icon-float md-block">
+                    <label>Password</label>
+                    <md-icon aria-label="vpn_key" class="material-icons step md-24">vpn_key</md-icon>
+                    <input required name="clientPass" type="password"
+                        ng-model="login.clientPass">
+                    <div class="hint">The password is: excelian</div>
+                    <!-- <div ng-messages="loginForm.clientPass.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div> -->
+                </md-input-container>
+                <md-checkbox md-no-ink class="md-primary checkbox"
+                    ng-model="login.rememberClientNumber"
+                    aria-label="Remember client number"> Remember client number
+                </md-checkbox>
+                <md-button class="md-accent md-raised btn-logon">Log on</md-button>
+                <p>
+                    <a href="#" class="md-body-1 md-primary md-hue-1 login-lnk">Forgot your log on details?</a>
+                    <!-- <a href="#" class="md-body-1 md-primary md-hue-1 login-lnk">Not yet registered?</a> -->
+                </p>
+            </form>
+        </md-card>
+    </div>
+
+
+<!-- Angular Material requires Angular.js Libraries -->
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+<!-- Angular Material Library -->
+<script src="//ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+
+<!-- Application  -->
+<script type="text/javascript">
+    angular
+        .module('digital-banking-app', ['ngMaterial'])
+        .config(function($mdThemingProvider) {
+            $mdThemingProvider.theme('default')
+            .primaryPalette('blue-grey', {
+              'default': '900',
+              'hue-1': '700',
+              'hue-2': '500',
+            })
+            .accentPalette('orange');
+});
+</script>
+
+</body>
+</html>
